@@ -685,7 +685,7 @@ void Utils::updateInternalWindowFrameMargins(QWindow *window, const bool enable)
         return;
     }
     const WId windowId = window->winId();
-    const auto margins = [enable, windowId]() -> QMargins {
+    auto margins = [enable, windowId]() -> QMargins {
         if (!enable) {
             return {};
         }
@@ -698,6 +698,9 @@ void Utils::updateInternalWindowFrameMargins(QWindow *window, const bool enable)
             return {-frameSizeX, -titleBarHeight, -frameSizeX, -frameSizeY};
         }
     }();
+#  if (QT_VERSION == QT_VERSION_CHECK(6, 5, 3))
+    margins = {0,0,0,0};
+#  endif
     const QVariant marginsVar = QVariant::fromValue(margins);
     window->setProperty("_q_windowsCustomMargins", marginsVar);
 #ifndef FRAMELESSHELPER_CORE_NO_PRIVATE
@@ -1267,7 +1270,7 @@ QColor Utils::getFrameBorderColor(const bool active)
         if (isFrameBorderColorized()) {
             return getAccentColor();
         }
-        return (dark ? kDefaultFrameBorderActiveColor : kDefaultTransparentColor);
+        return (dark ? kDefaultFrameBorderActiveColorDark : kDefaultFrameBorderActiveColorLight);
     } else {
         return (dark ? kDefaultFrameBorderInactiveColorDark : kDefaultFrameBorderInactiveColorLight);
     }
