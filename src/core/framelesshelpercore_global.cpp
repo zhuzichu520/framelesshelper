@@ -170,7 +170,9 @@ void FramelessHelperCoreInitialize()
     // to be safe we call it here.
     // Without this hack, our native dialogs won't be able to respond to
     // DPI change messages correctly, especially the non-client area.
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
     std::ignore =  Utils::fixupDialogsDpiScaling();
+#endif
 #endif
 
     // We need this flag to enable nested frameless windows, however,
