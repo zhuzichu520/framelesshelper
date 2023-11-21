@@ -173,12 +173,15 @@ void FramelessQuickHelperPrivate::attach()
     Q_Q(FramelessQuickHelper);
     QQuickWindow *window = q->window();
     Q_ASSERT(window);
-    if (!window || !q->isEnabled()) {
+    if (!window) {
         return;
     }
     const WId windowId = window->winId();
 
     const FramelessDataPtr data = FramelessManagerPrivate::createData(window, windowId);
+    if(window->property("useSystemAppBar").toBool()){
+        return;
+    }
     Q_ASSERT(data);
     if (!data || data->frameless) {
         return;
