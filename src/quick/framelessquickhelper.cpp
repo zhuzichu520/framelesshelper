@@ -173,7 +173,7 @@ void FramelessQuickHelperPrivate::attach()
     Q_Q(FramelessQuickHelper);
     QQuickWindow *window = q->window();
     Q_ASSERT(window);
-    if (!window) {
+    if (!window || !q->isEnabled()) {
         return;
     }
     const WId windowId = window->winId();
