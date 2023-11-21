@@ -176,7 +176,7 @@ void FramelessQuickHelperPrivate::attach()
     if (!window) {
         return;
     }
-    if(window->property("useSystemAppBar").toBool()){
+    if (FramelessConfig::instance()->isSet(Option::UseSystemAppBar)) {
         return;
     }
     const WId windowId = window->winId();

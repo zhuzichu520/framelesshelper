@@ -413,6 +413,7 @@ Q_NAMESPACE_EXPORT(FRAMELESSHELPER_CORE_API)
 enum class Option : quint8
 {
     UseCrossPlatformQtImplementation,
+    UseSystemAppBar,
     ForceHideWindowFrameBorder,
     ForceShowWindowFrameBorder,
     DisableWindowsSnapLayout,
