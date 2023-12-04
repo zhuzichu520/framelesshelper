@@ -57,6 +57,7 @@ struct FramelessConfigEntry
 static constexpr const std::array<FramelessConfigEntry, static_cast<int>(Option::Last) + 1> FramelessOptionsTable =
 {
     FramelessConfigEntry{ "FRAMELESSHELPER_USE_CROSS_PLATFORM_QT_IMPLEMENTATION", "Options/UseCrossPlatformQtImplementation" },
+    FramelessConfigEntry{ "FRAMELESSHELPER_USE_SYSTEM_APPBAR", "Options/UseSystemAppBar" },
     FramelessConfigEntry{ "FRAMELESSHELPER_FORCE_HIDE_WINDOW_FRAME_BORDER", "Options/ForceHideWindowFrameBorder" },
     FramelessConfigEntry{ "FRAMELESSHELPER_FORCE_SHOW_WINDOW_FRAME_BORDER", "Options/ForceShowWindowFrameBorder" },
     FramelessConfigEntry{ "FRAMELESSHELPER_DISABLE_WINDOWS_SNAP_LAYOUT", "Options/DisableWindowsSnapLayout" },
